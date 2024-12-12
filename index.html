@@ -12,8 +12,96 @@
             font-family: digit;
             src: url('digital-7_mono.ttf') format("truetype");
         }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffefeb, #ffe6e0);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        #passwordScreen {
+            background: linear-gradient(to bottom, #fbe8e7, #fcd4cf);
+        }
+
+        #mainDiv {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #loveHeart {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #garden {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #words {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #content {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f4f3;
+            border-radius: 8px;
+        }
+
+        h6 {
+            color: #ff7f7f;
+            font-family: 'Georgia', serif;
+        }
+
+        #heartspan i {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        #letterContent p {
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            #content {
+                padding: 15px;
+            }
+
+            h6 {
+                font-size: 1.8rem;
+            }
+
+            #letterContent {
+                font-size: 1.2rem;
+            }
+
+            #heartspan i {
+                font-size: 4rem;
+            }
+        }
     </style>
-    <link href="css/default.css?v=1.0" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.js?v=1.0"></script>
     <script type="text/javascript" src="js/garden.js?v=1.0"></script>
     <script type="text/javascript" src="js/functions.js?v=1.0"></script>
@@ -22,17 +110,17 @@
 </head>
 
 <body>
-    <div id="passwordScreen" class="w-full h-screen flex justify-center items-center bg-gray-100">
+    <div id="passwordScreen" class="w-full h-screen flex justify-center items-center">
         <div class="text-center">
             <label for="passwordInput" class="block text-xl font-bold text-gray-800 mb-4">Enter the code to view the surprise:</label>
             <input type="password" id="passwordInput" class="border border-gray-300 p-2 rounded w-64 text-center">
-            <button id="submitPassword" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+            <button id="submitPassword" class="ml-2 bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Submit</button>
         </div>
     </div>
 
     <div id="mainDiv" class="w-full max-w-4xl mx-auto text-center p-4 hidden">
-        <div id="loveHeart" class="flex justify-center items-center mx-auto">
-            <canvas id="garden" class="w-full h-auto"></canvas>
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
             <div id="words">
                 <div id="messages" class="text-3xl font-bold text-red-500">
                     <div id="elapseClock" class="mt-2 ml-10 text-lg text-gray-700"></div>
@@ -45,15 +133,15 @@
         </div>
 
         <br>
-        <div id="content" class="mt-54 scroll-auto mb-20">
+        <div id="content">
             <div id="code" class="text-left text-gray-800 text-xl px-4">
                 <span class="comments">/**</span>
                 <div class="space">
                     <span class="comments text-5xl mt-20">*A LETTER OF LOVE</span>
                 </div>
                 <span class="comments">*/</span>
-                <h6 class="text-5xl text-blue-500 font-bold mt-4">My Dearest Love,</h6>
-                <div class="text-4xl mt-4 overflow-auto" id="letterContent">
+                <h6 class="text-5xl text-pink-500 font-bold mt-4">My Dearest Love,</h6>
+                <div class="text-4xl mt-4" id="letterContent">
                     <p>You are the most beautiful part of my life, my safe haven, and my greatest joy.</p>
                     <p class="comments">// People see the stars, but I see my entire galaxy in you.</p>
                     <p>From the moment I met you, my heart knew a new rhythm, one it had never danced to before;</p>
