@@ -1,129 +1,42 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html lang="en" >
 <head>
-    <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>This one is for my Tanu</title>
-
-    <style type="text/css">
-        @font-face {
-            font-family: digit;
-            src: url('digital-7_mono.ttf') format("truetype");
-        }
-    </style>
-    <link href="css/default.css?v=1.0" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery.js?v=1.0"></script>
-    <script type="text/javascript" src="js/garden.js?v=1.0"></script>
-    <script type="text/javascript" src="js/functions.js?v=1.0"></script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>saro-rosy ❤️</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Short+Stack&amp;family=Homemade+Apple&amp;display=swap'>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="mainDiv" class="w-full max-w-4xl mx-auto text-center p-4 hidden">
-        <div id="loveHeart" class="flex justify-center items-center mx-auto">
-            <canvas id="garden" class="w-full h-auto"></canvas>
-            <div id="words">
-                <div id="messages" class="text-3xl font-bold text-red-500">
-                    <div id="elapseClock" class="mt-2 ml-10 text-lg text-gray-700"></div>
-                </div>
-                <div id="loveu" class="mb-4 text-2xl text-pink-600">
-                    MY HEART BELONGS TO YOU<br />
-                    <div class="signature text-lg text-gray-500 mt-2">- Sid</div>
-                </div>
-            </div>
-        </div>
 
-        <br>
-        <div id="content" class="mt-54 scroll-auto mb-20">
-            <div id="code" class="text-left text-gray-800 text-xl px-4">
-                <span class="comments">/**</span>
-                <div class="space">
-                    <span class="comments text-5xl mt-20">*A LETTER OF LOVE</span>
-                </div>
-                <span class="comments">*/</span>
-                <h6 class="text-5xl text-blue-500 font-bold mt-4">My Dearest Love,</h6>
-                <div class="text-4xl mt-4 overflow-auto" id="letterContent">
-                    <p>You are the most beautiful part of my life, my safe haven, and my greatest joy.</p>
-                    <p class="comments">// People see the stars, but I see my entire galaxy in you.</p>
-                    <p>From the moment I met you, my heart knew a new rhythm, one it had never danced to before;</p>
-                    <p class="comments">// Your smile, your kindness, your laugh.</p>
-                    <p>You’ve made my world brighter, my heart fuller, and my life worth cherishing;</p>
-                    <p>Every moment with you feels like a blessing;</p>
-                    <p>Your presence turns the ordinary into extraordinary;</p>
-                    <p>You’ve taught me the true meaning of love;</p>
-                    <p>Through every challenge, your love has been my strength;</p>
-                    <p class="comments">// Your voice is my favorite melody.</p>
-                    <p>I will love you not only today or tomorrow;</p>
-                    <p>But every day, in ways big and small;</p>
-                    <p class="mt-6">You are my everything;</p>
-                    <p class="mt-4">The reason I wake up with a smile, the thought I fall asleep with;</p>
-                    <p class="mt-6">So here’s my promise:</p>
-                    <p class="mt-4">No matter what life brings, I will always stand by your side, loving and cherishing you endlessly;</p>
-                    <p class="mt-6">And now, if my words have touched your heart, touch the heart below and feel my warmth.</p>
-                    <div id="heartspan" class="block text-center mt-4">
-                        <a href="image.jpg">
-                            <i class="fas fa-heart text-red-500 text-6xl hover:text-red-600 transition-transform transform hover:scale-110"></i>
-                        </a>
-                        <p>I love you!!!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        // Wait for the DOM to be fully loaded before executing
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ask for the code
-            var password = prompt("Enter the code to view the surprise:");
-            console.log("Password entered:", password); // Debugging: check password input
-
-            if (password === "sudishka") {
-                console.log("Correct password! Showing content...");
-                // Reveal the main content
-                document.getElementById("mainDiv").classList.remove("hidden");
-
-                // Heart animation setup
-                var offsetX = $("#loveHeart").width() / 2;
-                var offsetY = $("#loveHeart").height() / 2 - 55;
-                var together = new Date();
-                together.setFullYear(2021, 9, 26);
-                together.setHours(16);
-                together.setMinutes(30);
-                together.setSeconds(0);
-                together.setMilliseconds(0);
-
-                if (!document.createElement('canvas').getContext) {
-                    var msg = document.createElement("div");
-                    msg.id = "errorMsg";
-                    msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
-                    document.body.appendChild(msg);
-                    $("#code").css("display", "none");
-                    $("#copyright").css("position", "absolute");
-                    $("#copyright").css("bottom", "10px");
-                    document.execCommand("stop");
-                } else {
-                    setTimeout(function() {
-                        startHeartAnimation();
-                    }, 5000);
-
-                    timeElapse(together);
-                    setInterval(function() {
-                        timeElapse(together);
-                    }, 500);
-
-                    adjustCodePosition();
-                    $("#code").typewriter();
-                }
-            } else {
-                console.log("Access Denied!"); // Debugging: check if access is denied
-                // Display "Access Denied" message if the code is incorrect
-                document.body.innerHTML = "<h1 style='text-align: center; margin-top: 50px; color: red;'>Access Denied</h1>";
-            }
-        });
-    </script>
+<!-- Developed by Saravanan  -->
+<div class="paper heart">
+</div>
+<div class="paper image">
+  <p> and I fallen in</p>
+    <p>Love with You 😍 </p>
+   <img src="https://iili.io/HSzXpzg.jpg" />
+</div>
+<div class="paper image">
+  <p</p>
+  <img src="https://iili.io/HSzXbmF.jpg" />
+</div>
+<div class="paper image">
+  <p>How can be </p>
+   <p> someone so cute ❤️ </p>
+  <img src="https://iili.io/HSzXyXa.jpg" />
+</div>
+<div class="paper red">
+<p class="p1"> and My Favorite</p>
+<p class="p2">Person 😍</p>
+</div>
+<div class="paper">
+<p class="p1">You are Cute </p>
+  <p class="p1">Amazing <span style="color: red !important;">❤️</span></p>
+</div>
+<div class="paper">
+<p class="p1">Drag the papers to move!</p>
+</div>
+<!-- javascript file -->
+  <script  src="script.js"></script>
 </body>
-
 </html>
