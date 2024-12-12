@@ -93,7 +93,7 @@ function verifyCode() {
   let codeName;
   do {
     codeName = prompt("Enter the code to proceed:");
-  } while (codeName !== "sudishka");
+  } while (codeName !== "sudishka" || codeName !== "Sudishka" || codeName !== "SUDISHKA");
 }
 
 verifyCode();
