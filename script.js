@@ -1,4 +1,13 @@
+// Prompt the user for the code name
+const codeName = prompt("Enter the code to proceed:");
+
+if (codeName !== "sudishka") {
+  alert("Invalid code. Access denied.");
+  throw new Error("Access denied.");
+}
+
 let highestZ = 1;
+
 class Paper {
   holdingPaper = false;
   mouseTouchX = 0;
