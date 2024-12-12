@@ -4,6 +4,7 @@
 <head>
     <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>This one is for my Tanu</title>
 
     <style type="text/css">
@@ -21,6 +22,14 @@
 </head>
 
 <body>
+    <div id="passwordScreen" class="w-full h-screen flex justify-center items-center bg-gray-100">
+        <div class="text-center">
+            <label for="passwordInput" class="block text-xl font-bold text-gray-800 mb-4">Enter the code to view the surprise:</label>
+            <input type="password" id="passwordInput" class="border border-gray-300 p-2 rounded w-64 text-center">
+            <button id="submitPassword" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+        </div>
+    </div>
+
     <div id="mainDiv" class="w-full max-w-4xl mx-auto text-center p-4 hidden">
         <div id="loveHeart" class="flex justify-center items-center mx-auto">
             <canvas id="garden" class="w-full h-auto"></canvas>
@@ -74,54 +83,49 @@
     </div>
 
     <script type="text/javascript">
-        // Wait for the DOM to be fully loaded before executing
         document.addEventListener('DOMContentLoaded', function() {
-            // Ask for the code
-            var password = prompt("Enter the code to view the surprise:");
-            console.log("Password entered:", password); // Debugging: check password input
+            const passwordScreen = document.getElementById('passwordScreen');
+            const mainDiv = document.getElementById('mainDiv');
+            const submitPassword = document.getElementById('submitPassword');
+            const passwordInput = document.getElementById('passwordInput');
 
-            if (password === "sudishka") {
-                console.log("Correct password! Showing content...");
-                // Reveal the main content
-                document.getElementById("mainDiv").classList.remove("hidden");
+            submitPassword.addEventListener('click', function() {
+                const password = passwordInput.value;
 
-                // Heart animation setup
-                var offsetX = $("#loveHeart").width() / 2;
-                var offsetY = $("#loveHeart").height() / 2 - 55;
-                var together = new Date();
-                together.setFullYear(2021, 9, 26);
-                together.setHours(16);
-                together.setMinutes(30);
-                together.setSeconds(0);
-                together.setMilliseconds(0);
+                if (password === "sudishka") {
+                    console.log("Correct password! Showing content...");
+                    passwordScreen.style.display = "none";
+                    mainDiv.classList.remove("hidden");
 
-                if (!document.createElement('canvas').getContext) {
-                    var msg = document.createElement("div");
-                    msg.id = "errorMsg";
-                    msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
-                    document.body.appendChild(msg);
-                    $("#code").css("display", "none");
-                    $("#copyright").css("position", "absolute");
-                    $("#copyright").css("bottom", "10px");
-                    document.execCommand("stop");
-                } else {
-                    setTimeout(function() {
-                        startHeartAnimation();
-                    }, 5000);
+                    const offsetX = $("#loveHeart").width() / 2;
+                    const offsetY = $("#loveHeart").height() / 2 - 55;
+                    const together = new Date(2021, 9, 26, 16, 30, 0, 0);
 
-                    timeElapse(together);
-                    setInterval(function() {
+                    if (!document.createElement('canvas').getContext) {
+                        const msg = document.createElement("div");
+                        msg.id = "errorMsg";
+                        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+                        document.body.appendChild(msg);
+                        $("#code").css("display", "none");
+                        document.execCommand("stop");
+                    } else {
+                        setTimeout(function() {
+                            startHeartAnimation();
+                        }, 5000);
+
                         timeElapse(together);
-                    }, 500);
+                        setInterval(function() {
+                            timeElapse(together);
+                        }, 500);
 
-                    adjustCodePosition();
-                    $("#code").typewriter();
+                        adjustCodePosition();
+                        $("#code").typewriter();
+                    }
+                } else {
+                    alert("Incorrect password. Please try again.");
+                    passwordInput.value = "";
                 }
-            } else {
-                console.log("Access Denied!"); // Debugging: check if access is denied
-                // Display "Access Denied" message if the code is incorrect
-                document.body.innerHTML = "<h1 style='text-align: center; margin-top: 50px; color: red;'>Access Denied</h1>";
-            }
+            });
         });
     </script>
 </body>
