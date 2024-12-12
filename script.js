@@ -1,13 +1,4 @@
-// Prompt the user for the code name
-const codeName = prompt("Enter the code to proceed:");
-
-if (codeName !== "sudishka") {
-  alert("Invalid code. Access denied.");
-  throw new Error("Access denied.");
-}
-
 let highestZ = 1;
-
 class Paper {
   holdingPaper = false;
   mouseTouchX = 0;
@@ -97,6 +88,15 @@ class Paper {
     window.addEventListener("touchend", onEnd.bind(this), { passive: false });
   }
 }
+
+function verifyCode() {
+  let codeName;
+  do {
+    codeName = prompt("Enter the code to proceed:");
+  } while (codeName !== "sudishka");
+}
+
+verifyCode();
 
 const papers = Array.from(document.querySelectorAll(".paper"));
 papers.forEach((paper) => {
