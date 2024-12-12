@@ -93,8 +93,9 @@ function verifyCode() {
   let codeName;
   do {
     codeName = prompt("Enter the code to proceed:");
-  } while (codeName !== "sudishka" || codeName !== "Sudishka" || codeName !== "SUDISHKA");
+  } while (codeName.toLowerCase() !== "sudishka");
 }
+
 
 verifyCode();
 
