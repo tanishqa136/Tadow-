@@ -44,6 +44,7 @@ class Paper {
     };
 
     const onMove = (e) => {
+      e.preventDefault();
       if (e.touches) {
         // Touch events
         updatePosition(e.touches[0].clientX, e.touches[0].clientY);
@@ -54,37 +55,37 @@ class Paper {
     };
 
     const onStart = (e) => {
+      e.preventDefault();
       if (this.holdingPaper) return;
       this.holdingPaper = true;
       paper.style.zIndex = highestZ;
       highestZ += 1;
-      if (e.touches || e.button === 0) {
-        const x = e.touches ? e.touches[0].clientX : e.clientX;
-        const y = e.touches ? e.touches[0].clientY : e.clientY;
-        this.mouseTouchX = x;
-        this.mouseTouchY = y;
-        this.prevMouseX = x;
-        this.prevMouseY = y;
-      }
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      const y = e.touches ? e.touches[0].clientY : e.clientY;
+      this.mouseTouchX = x;
+      this.mouseTouchY = y;
+      this.prevMouseX = x;
+      this.prevMouseY = y;
       if (!e.touches && e.button === 2) {
         this.rotating = true;
       }
     };
 
-    const onEnd = () => {
+    const onEnd = (e) => {
+      e.preventDefault();
       this.holdingPaper = false;
       this.rotating = false;
     };
 
     // Mouse events
-    document.addEventListener("mousemove", onMove);
-    paper.addEventListener("mousedown", onStart);
-    window.addEventListener("mouseup", onEnd);
+    document.addEventListener("mousemove", onMove.bind(this));
+    paper.addEventListener("mousedown", onStart.bind(this));
+    window.addEventListener("mouseup", onEnd.bind(this));
 
     // Touch events
-    document.addEventListener("touchmove", onMove);
-    paper.addEventListener("touchstart", onStart);
-    window.addEventListener("touchend", onEnd);
+    document.addEventListener("touchmove", onMove.bind(this), { passive: false });
+    paper.addEventListener("touchstart", onStart.bind(this), { passive: false });
+    window.addEventListener("touchend", onEnd.bind(this), { passive: false });
   }
 }
 
